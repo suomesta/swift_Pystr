@@ -10,7 +10,9 @@ import Pystr
 ## How to use
 
 Call functions in String extention "py", like
+```
 p = "abcde".py.partition("c") // p is ["ab", "c", "de"]
+```
 
 ## Authors
 
