@@ -5,7 +5,9 @@ Pystr is an extension library of Swift to be available functions of Python str.
 ## Basic information
 
 To use this library, include Pystr.swift and declare
+```
 import Pystr
+```
 
 ## How to use
 
