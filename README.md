@@ -1,6 +1,6 @@
 # Pystr
 
-Pystr is an extention library of Swift to be available functions of Python str.
+Pystr is an extension library of Swift to be available functions of Python str.
 
 ## Basic information
 
