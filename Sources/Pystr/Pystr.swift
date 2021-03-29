@@ -506,18 +506,7 @@ extension PyStrExtension where Base == String {
      * str.join() of python
      */
     func join(_ strs: [String]) -> String {
-        if strs.isEmpty {
-            return ""
-        }
-
-        var retval = ""
-        for (index, str) in strs.enumerated() {
-            if index > 0 {
-                retval += base
-            }
-            retval += str
-        }
-        return retval
+        return strs.joined(separator: base)
     }
 
     /**
