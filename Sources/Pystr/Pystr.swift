@@ -185,6 +185,10 @@ extension PyStrExtension where Base == String {
      * str.__len__() of python
      */
     func len() -> Int {
+        if base.contains("\r\n") {
+            return len0D0A(base)
+        }
+
         return base.count
     }
 

@@ -150,6 +150,8 @@ TEST_MAP = OrderedDict((
         ("'a'.__len__()", '"a".py.len()'),
         ("'AAA'.__len__()", '"AAA".py.len()'),
         ("'あ'.__len__()", '"あ".py.len()'),
+        ("'\\r\\n'.__len__()", '"\\r\\n".py.len()'),
+        ("'\\n\\r'.__len__()", '"\\n\\r".py.len()'),
         ("''.__len__()", '"".py.len()'),
     )),
     ('test_lt', (
