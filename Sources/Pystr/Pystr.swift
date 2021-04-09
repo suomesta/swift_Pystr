@@ -757,36 +757,26 @@ extension PyStrExtension where Base == String {
      * str.splitlines() of python
      */
     func splitlines(_ keepends: Bool = false) -> [String] {
+        let returnCodes = ["\r\n", "\r", "\n"]
+
         var ret: [String] = []
+        var tmp = ""
+        for element in base {
+            let char = String(element)
+            let ends = returnCodes.contains(char)
 
-        var start = 0
-        while start < base.count {
-            let endr = self.find("\r", start)
-            let endn = self.find("\n", start)
+            if !ends || (ends && keepends) {
+                tmp += char
+            }
 
-            if endr == -1 && endn == -1 { // find no return code
-                ret.append(substr(start, base.count))
-                break
-            } else if endr != -1 && endn == -1 { // find \r
-                ret.append(substr(start, endr /*- start*/ + (keepends ? 1 : 0)))
-                start = endr + 1
-            } else if endr == -1 && endn != -1 { // find \n
-                ret.append(substr(start, endn /*- start*/ + (keepends ? 1 : 0)))
-                start = endn + 1
-            } else {
-                if endr > endn { // find \n
-                    ret.append(substr(start, endn /*- start*/ + (keepends ? 1 : 0)))
-                    start = endn + 1
-                } else if (endr + 1) == endn { // find \r\n
-                    ret.append(substr(start, endr /*- start*/ + (keepends ? 2 : 0)))
-                    start = endr + 2
-                } else { // find \r
-                    ret.append(substr(start, endr /*- start*/ + (keepends ? 1 : 0)))
-                    start = endr + 1
-                }
+            if ends {
+                ret.append(tmp)
+                tmp.removeAll()
             }
         }
-
+        if tmp != "" {
+            ret.append(tmp)
+        }
         return ret
     }
 
