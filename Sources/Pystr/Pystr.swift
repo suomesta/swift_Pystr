@@ -63,7 +63,7 @@ extension PyStrExtension where Base == String {
      * str.__add__() of python
      */
     func add(_ value: String) -> String {
-        return base + value
+        base + value
     }
 
     /**
@@ -81,14 +81,14 @@ extension PyStrExtension where Base == String {
      * str.__eq__() of python
      */
     func eq(_ value: String) -> Bool {
-        return base == value
+        base == value
     }
 
     /**
      * str.__ge__() of python
      */
     func ge(_ value: String) -> Bool {
-        return base >= value
+        base >= value
     }
 
     /**
@@ -171,14 +171,14 @@ extension PyStrExtension where Base == String {
      * str.__gt__() of python
      */
     func gt(_ value: String) -> Bool {
-        return base > value
+        base > value
     }
 
     /**
      * str.__le__() of python
      */
     func le(_ value: String) -> Bool {
-        return base <= value
+        base <= value
     }
 
     /**
@@ -196,7 +196,7 @@ extension PyStrExtension where Base == String {
      * str.__lt__() of python
      */
     func lt(_ value: String) -> Bool {
-        return base < value
+        base < value
     }
 
     /**
@@ -214,7 +214,7 @@ extension PyStrExtension where Base == String {
      * str.__ne__() of python
      */
     func ne(_ value: String) -> Bool {
-        return base != value
+        base != value
     }
 
     /**
@@ -255,7 +255,7 @@ extension PyStrExtension where Base == String {
      * str.__rmul__() of python
      */
     func rmul(_ value: Int) -> String {
-        return mul(value)
+        mul(value)
     }
 
     /**
@@ -276,7 +276,7 @@ extension PyStrExtension where Base == String {
      * str.casefold() of python
      */
     func casefold() -> String {
-        return base.lowercased()
+        base.lowercased()
     }
 
     /**
@@ -328,14 +328,14 @@ extension PyStrExtension where Base == String {
      * str.endswith() of python
      */
     func endswith(_ prefix: String, _ start: Int? = nil, _ end: Int? = nil) -> Bool {
-        return slice_onestep(start, end).hasSuffix(prefix)
+        slice_onestep(start, end).hasSuffix(prefix)
     }
 
     /**
      * str.endswith() of python
      */
     func endswith(_ prefix: [String], _ start: Int? = nil, _ end: Int? = nil) -> Bool {
-        return prefix.contains { endswith($0, start, end) }
+        prefix.contains { endswith($0, start, end) }
     }
 
     /**
@@ -407,7 +407,7 @@ extension PyStrExtension where Base == String {
      * non-ascii characters are not tested enough.
      */
     func isalnum() -> Bool {
-        return !base.isEmpty && base.allSatisfy({ $0.isNumber || $0.isCased })
+        !base.isEmpty && base.allSatisfy({ $0.isNumber || $0.isCased })
     }
 
     /**
@@ -416,7 +416,7 @@ extension PyStrExtension where Base == String {
      * non-ascii characters are not tested enough.
      */
     func isalpha() -> Bool {
-        return !base.isEmpty && base.allSatisfy({ $0.isCased })
+        !base.isEmpty && base.allSatisfy({ $0.isCased })
     }
 
     /**
@@ -425,7 +425,7 @@ extension PyStrExtension where Base == String {
      * non-ascii characters are not tested enough.
      */
     func isascii() -> Bool {
-        return base.allSatisfy({ $0.isASCII })
+        base.allSatisfy({ $0.isASCII })
     }
 
     /**
@@ -434,7 +434,7 @@ extension PyStrExtension where Base == String {
      * non-ascii characters are not tested enough.
      */
     func isdecimal() -> Bool {
-        return !base.isEmpty && base.allSatisfy({ $0.isNumber })
+        !base.isEmpty && base.allSatisfy({ $0.isNumber })
     }
 
     /**
@@ -443,7 +443,7 @@ extension PyStrExtension where Base == String {
      * non-ascii characters are not tested enough.
      */
     func isdigit() -> Bool {
-        return !base.isEmpty && base.allSatisfy({ $0.isNumber })
+        !base.isEmpty && base.allSatisfy({ $0.isNumber })
     }
 
     /**
@@ -452,8 +452,8 @@ extension PyStrExtension where Base == String {
      * non-ascii characters are not tested enough.
      */
     func islower() -> Bool {
-        return base.allSatisfy({ !$0.isUppercase }) &&
-            base.contains(where: { $0.isLowercase })
+        base.allSatisfy({ !$0.isUppercase }) &&
+        base.contains(where: { $0.isLowercase })
     }
 
     /**
@@ -462,7 +462,7 @@ extension PyStrExtension where Base == String {
      * non-ascii characters are not tested enough.
      */
     func isnumeric() -> Bool {
-        return !base.isEmpty && base.allSatisfy({ $0.isNumber })
+        !base.isEmpty && base.allSatisfy({ $0.isNumber })
     }
 
     /**
@@ -481,7 +481,7 @@ extension PyStrExtension where Base == String {
      * non-ascii characters are not tested enough.
      */
     func isspace() -> Bool {
-        return !base.isEmpty && base.allSatisfy({ $0.isWhitespace })
+        !base.isEmpty && base.allSatisfy({ $0.isWhitespace })
     }
 
     /**
@@ -490,10 +490,10 @@ extension PyStrExtension where Base == String {
      * non-ascii characters are not tested enough.
      */
     func istitle() -> Bool {
-        return !base.isEmpty &&
-            zip(" " + base, base).allSatisfy({
-                $0.isCased ? !$1.isUppercase: !$1.isLowercase
-            })
+        !base.isEmpty &&
+        zip(" " + base, base).allSatisfy({
+            $0.isCased ? !$1.isUppercase: !$1.isLowercase
+        })
     }
 
     /**
@@ -502,15 +502,15 @@ extension PyStrExtension where Base == String {
      * non-ascii characters are not tested enough.
      */
     func isupper() -> Bool {
-        return base.allSatisfy({ !$0.isLowercase }) &&
-            base.contains(where: { $0.isUppercase })
+        base.allSatisfy({ !$0.isLowercase }) &&
+        base.contains(where: { $0.isUppercase })
     }
 
     /**
      * str.join() of python
      */
     func join(_ strs: [String]) -> String {
-        return strs.joined(separator: base)
+        strs.joined(separator: base)
     }
 
     /**
@@ -528,7 +528,7 @@ extension PyStrExtension where Base == String {
      * str.lower() of python
      */
     func lower() -> String {
-        return base.lowercased()
+        base.lowercased()
     }
 
     /**
@@ -784,21 +784,21 @@ extension PyStrExtension where Base == String {
      * str.startswith() of python
      */
     func startswith(_ prefix: String, _ start: Int? = nil, _ end: Int? = nil) -> Bool {
-        return self.slice_onestep(start, end).hasPrefix(prefix)
+        self.slice_onestep(start, end).hasPrefix(prefix)
     }
 
     /**
      * str.startswith() of python
      */
     func startswith(_ prefix: [String], _ start: Int? = nil, _ end: Int? = nil) -> Bool {
-        return prefix.contains { self.startswith($0, start, end) }
+        prefix.contains { self.startswith($0, start, end) }
     }
 
     /**
      * str.strip() of python
      */
     func strip(_ chars: String? = nil) -> String {
-        return rstrip(chars).py.lstrip(chars)
+        rstrip(chars).py.lstrip(chars)
     }
 
     /**
@@ -835,7 +835,7 @@ extension PyStrExtension where Base == String {
      * str.upper() of python
      */
     func upper() -> String {
-        return base.uppercased()
+        base.uppercased()
     }
 
     /**
