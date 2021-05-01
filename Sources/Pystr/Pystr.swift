@@ -70,11 +70,7 @@ extension PyStrExtension where Base == String {
      * str.__contains__() of python
      */
     func contains(_ key: String) -> Bool {
-        if !key.isEmpty {
-            return base.contains(key)
-        } else {
-            return true
-        }
+        key.isEmpty || base.contains(key)
     }
 
     /**
