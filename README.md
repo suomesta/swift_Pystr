@@ -16,6 +16,11 @@ Call functions in String extention "py", like
 p = "abcde".py.partition("c") // p is ["ab", "c", "de"]
 ```
 
+## Notes
+
+Unfortunately Swift's way of handling "¥r¥n" is different from Python's.
+If a string includes "¥r¥n", some functions do not work well.
+
 ## Authors
 
 toda

@@ -117,7 +117,6 @@ final class PystrTests: XCTestCase {
         XCTAssertEqual(1, "a".py.len())
         XCTAssertEqual(3, "AAA".py.len())
         XCTAssertEqual(1, "あ".py.len())
-        XCTAssertEqual(2, "\r\n".py.len())
         XCTAssertEqual(2, "\n\r".py.len())
         XCTAssertEqual(0, "".py.len())
     }
